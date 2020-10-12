@@ -1,0 +1,44 @@
+{
+  "name": "covid19",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix --ext .ts,.tsx ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eldorean/covid19.git"
+  },
+  "author": "Silvester Wilson Wennekers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eldorean/covid19/issues"
+  },
+  "homepage": "https://github.com/Eldorean/covid19#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/register": "^7.11.5",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "core-js": "^3.6.5",
+    "eslint": "^7.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {},
+  "workspaces": [
+    "packages/*"
+  ]
+}
