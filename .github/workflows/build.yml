@@ -22,7 +22,8 @@ jobs:
       - name: Build packages
         run: yarn run build:all
 
-      - uses: actions/upload-artifact@master
-          with:
-            name: distribution-artifacts
-            path: '**/dist'
+      - name: Create distribution artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: distribution-artifacts
+          path: '**/dist'
