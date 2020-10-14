@@ -1,23 +1,39 @@
 {
   "name": "covid19",
   "private": true,
-  "version": "0.0.1",
+  "author": "Silvester Wilson Wennekers",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix --ext .ts,.tsx ."
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Eldorean/covid19.git"
   },
-  "author": "Silvester Wilson Wennekers",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:all": "yarn workspaces run build",
+    "lint": "eslint --fix --ext .ts,.tsx ."
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Eldorean/covid19/issues"
   },
   "homepage": "https://github.com/Eldorean/covid19#readme",
+  "release": {
+    "branches": [
+      "master",
+      { "name": "develop", "prerelease": true },
+      { "name": "release", "prerelease": true }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator"
+    ]
+  },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",

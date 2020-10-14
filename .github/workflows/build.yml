@@ -1,0 +1,30 @@
+name: Build 
+
+on: [ push ]
+
+jobs:
+  build-cache:
+    name: Prepare Cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install packages
+        run: yarn install
+
+      - name: Build packages
+        run: yarn run build:all
+
+      - name: Create distribution artifacts
+        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
+        uses: actions/upload-artifact@master
+        with:
+          name: distribution-artifacts
+          path: '**/dist'
