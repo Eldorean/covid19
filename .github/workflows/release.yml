@@ -1,0 +1,30 @@
+name: Release 
+
+on: [ push ]
+
+jobs:
+  release-version:
+  deploy_npm:
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
+    needs: [ build-cache ]
+    env:
+      BRANCH: ${{ github.ref }}
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - uses: actions/download-artifact@master
+        with:
+          name: distribution-artifacts
+          path: '**/dist'
+
+      - name: Release
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
