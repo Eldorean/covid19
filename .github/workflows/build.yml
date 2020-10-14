@@ -3,7 +3,7 @@ name: Build
 on: [ push ]
 
 jobs:
-  yarn-cache:
+  build and cache packages:
     name: Prepare Cache
     runs-on: ubuntu-latest
     steps:
@@ -21,3 +21,8 @@ jobs:
 
       - name: Build packages
         run: yarn run build:all
+
+      - uses: actions/upload-artifact@master
+          with:
+            name: distribution-artifacts
+            path: '**/dist'
