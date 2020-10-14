@@ -2,7 +2,7 @@ import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config = () => ({
-  entry: './src/index.tsx',
+  entry: './configs/react-develop.ts',
   module: {
     rules: [
       {
@@ -25,7 +25,7 @@ const config = () => ({
     extensions: ['.tsx', '.ts', '.js'],
     modules: [
       path.resolve(__dirname, '../../node_modules'),
-      path.resolve(__dirname, 'src')
+      path.resolve(__dirname, 'configs')
     ]
   },
   output: {
