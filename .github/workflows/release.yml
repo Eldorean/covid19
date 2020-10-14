@@ -4,8 +4,7 @@ on: [ push ]
 
 jobs:
   release-version:
-  if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
-  deploy_npm:
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
     needs: [ build-cache ]
     env:
       BRANCH: ${{ github.ref }}
