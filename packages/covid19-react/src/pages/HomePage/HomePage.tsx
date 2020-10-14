@@ -1,16 +1,16 @@
 import React from 'react'
+import { CoreService } from 'services/core/CoreService'
 import { HomePageInput } from './HomePageInput'
 import { HomePageTitle } from './HomePageTitle'
-import { HomePageProps } from '@covid19/core'
 
 // const HomePageController: React.FC = () => { }
 
 const HomePage: React.FC = () => {
-  const homePageProps = new HomePageProps()
+  const core = new CoreService().GetInstance()
 
   return (
     <>
-      <HomePageTitle>{homePageProps.Title}</HomePageTitle>
+      <HomePageTitle>{core.HomePageProps.Title}</HomePageTitle>
       <HomePageInput placeholder="search country" />
     </>
   )
