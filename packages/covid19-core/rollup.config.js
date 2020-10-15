@@ -22,7 +22,6 @@ export default {
     }
   ],
   plugins: [
-    // external(),
     resolve({
       rootDir: './src'
     }),

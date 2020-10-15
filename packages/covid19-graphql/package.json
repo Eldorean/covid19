@@ -2,20 +2,25 @@
   "name": "@covid19/graphql",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Build is comming...\"",
+    "build": "yarn run codegen || rimraf dist; rollup -c",
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "author": "Silvester Wilson Wennekers",
   "license": "ISC",
-  "dependencies": {
-    "@types/graphql": "^14.5.0",
+  "peerDependencies": {
     "@apollo/client": "^3.2.2",
     "graphql": "^15.3.0"
   },
   "devDependencies": {
+    "@types/graphql": "^14.5.0",
     "@graphql-codegen/cli": "1.17.10",
     "@graphql-codegen/introspection": "1.18.0",
     "@graphql-codegen/typescript": "1.17.10",

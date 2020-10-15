@@ -1,12 +1,16 @@
+import { Country } from '@covid19/core'
 import React from 'react'
-// import Country from '../../../../../core/src/entitties/Country'
+import { CountryServiceProvider } from './services/CountriesServiceAdapter'
 
 export interface CountryReportPageProps {
-  country: string;
+  countryName: string;
+  country: Country
 }
 
-const CountryReportPage: React.FC<CountryReportPageProps> = ({ country }) => {
-  return <div>{country}</div>
+const CountryReportPageStatic: React.FC<CountryReportPageProps> = ({ countryName, country }) => {
+  return <div>{countryName}: {country?.Report?.Deaths}</div>
 }
+
+const CountryReportPage = CountryServiceProvider(CountryReportPageStatic)
 
 export { CountryReportPage }

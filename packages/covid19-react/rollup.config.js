@@ -34,5 +34,5 @@ export default {
     }),
     commonjs()
   ],
-  external: Object.keys(pkg.peerdependencies)
+  external: Object.keys(pkg.peerDependencies)
 }

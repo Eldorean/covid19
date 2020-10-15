@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client/core'
-import { ApiConfig } from '../..'
+import { ApiConfig } from '../configuration/ApiConfig'
 
 const client = ({ url }: ApiConfig) => new ApolloClient({
   uri: url,
