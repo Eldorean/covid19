@@ -1,8 +1,7 @@
-import { ApiConfig } from "./ApiConfig"
-
+import { ApiConfig } from './ApiConfig'
 
 const Covid19ApiConfig: ApiConfig = {
-  url: "https://covid19-graphql.netlify.app/"
+  url: 'https://covid19-graphql.netlify.app/'
 }
 
 export { Covid19ApiConfig }

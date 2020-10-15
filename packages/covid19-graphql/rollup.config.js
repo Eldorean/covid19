@@ -1,7 +1,6 @@
 import typescriptPlugin from 'rollup-plugin-typescript2'
-import commonjs from 'rollup-plugin-commonjs'
-import external from 'rollup-plugin-peer-deps-external'
-import resolve from 'rollup-plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 import typescript from 'typescript'
 import graphql from '@kocal/rollup-plugin-graphql'
 
@@ -24,7 +23,6 @@ export default {
     }
   ],
   plugins: [
-    external(),
     resolve(),
     graphql(),
     typescriptPlugin({
@@ -34,5 +32,6 @@ export default {
       exclude: ['**/*.test.tsx', '**/*.stories.tsx']
     }),
     commonjs()
-  ]
+  ],
+  external: Object.keys(pkg.peerDependencies)
 }

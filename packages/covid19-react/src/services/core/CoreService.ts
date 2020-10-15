@@ -1,6 +1,16 @@
-export class CoreService {
-  private static _Instance?: any;
+import { CountryDataProvider, HomePageProps } from '@covid19/core'
 
-  public SET_INSTANCE_ON_ROOT = (instance: any) => { CoreService._Instance = instance }
-  public GetInstance = () => CoreService._Instance
+export interface CoreInstance {
+  CountryProvider: CountryDataProvider
+  HomePageProps: HomePageProps
+}
+
+export class CoreServiceInstance {
+  public static _Instance?: CoreInstance;
+
+  public SET_INSTANCE_ON_ROOT = (instance: CoreInstance) => { CoreServiceInstance._Instance = instance }
+  public GetInstance = () => {
+    if (!CoreServiceInstance._Instance) throw new ReferenceError('Core Instance is not initializes.')
+    return CoreServiceInstance._Instance
+  }
 }

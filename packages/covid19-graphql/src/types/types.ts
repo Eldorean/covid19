@@ -162,12 +162,32 @@ export enum StateResultParametersSortInput {
   Active = 'active'
 }
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type CountryQueryVariables = Exact<{
+  name: Scalars['String'];
+}>;
 
-export type Unnamed_1_Query = (
+export type CountryQuery = (
+  { __typename?: 'Query' }
+  & { country: (
+    { __typename?: 'Country' }
+    & Pick<Country, 'country'>
+    & { result: (
+      { __typename?: 'Result' }
+      & Pick<Result, 'population' | 'tests' | 'cases' | 'todayCases' | 'deaths' | 'todayDeaths' | 'recovered' | 'active' | 'critical' | 'casesPerOneMillion' | 'deathsPerOneMillion' | 'testsPerOneMillion' | 'activePerOneMillion' | 'recoveredPerOneMillion' | 'criticalPerOneMillion' | 'updated'>
+    ) }
+  ) }
+);
+
+export type ListOfCountriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+export type ListOfCountriesQuery = (
   { __typename?: 'Query' }
   & { countries: Array<(
     { __typename?: 'Country' }
     & Pick<Country, 'country'>
+    & { result: (
+      { __typename?: 'Result' }
+      & Pick<Result, 'population'>
+    ) }
   )> }
 );

@@ -1,5 +1,7 @@
-import CONTENT from './CountryCount.graphql'
+import LISTOFCOUNTRIESQUERY from './QueryListOfCountries.graphql'
+import COUNTRYQUERY from './QueryCountry.graphql'
 
 export const Queries = {
-  CONTENT
+  COUNTRIES_CONTENT: LISTOFCOUNTRIESQUERY,
+  COUNTRY: COUNTRYQUERY
 }

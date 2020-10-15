@@ -1,0 +1,23 @@
+query Country ($name: String!) {
+  country(name: $name) {
+    country
+    result {
+        population
+        tests
+        cases
+        todayCases
+        deaths
+        todayDeaths
+        recovered
+        active
+        critical
+        casesPerOneMillion
+        deathsPerOneMillion
+        testsPerOneMillion
+        activePerOneMillion
+        recoveredPerOneMillion
+        criticalPerOneMillion
+        updated
+    }
+  }
+}
