@@ -1,20 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import { CenterHor } from "components/AbsoluteWindow/AbsoluteWindow";
 
 const Window = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 35%;
+  ${CenterHor}
   border: 2px solid #d6d4d4;
   border-radius: 3px;
-  transform: translate(-50%, 0%) translate(0, 65px);
   padding: 0px;
   width: 100%;
   max-width: 320px;
+  margin: 15px auto;
 `
 
-const DropDownWindow: React.FC = ({ children }) => {
+const Dropdown: React.FC = ({ children }) => {
   return <Window>{children}</Window>
 }
 
-export { DropDownWindow }
+export { Dropdown }

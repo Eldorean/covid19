@@ -12,7 +12,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "yarn install && yarn run build:all && yarn workspace @covid19/configs start",
     "build:all": "yarn workspaces run build",
     "lint": "eslint --fix --ext .ts,.tsx ."
   },
@@ -41,23 +41,43 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/register": "^7.10.5",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
+    "@types/chai": "^4.2.13",
+    "@types/enzyme": "^3.10.7",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/mocha": "^8.0.3",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^8.1.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.29.0",
     "rollup-plugin-typescript2": "^0.27.3",
+    "ts-node": "^8.10.2",
     "typescript": "^4.0.3"
   },
   "workspaces": [
     "packages/*",
     "applications/web"
-  ]
+  ],
+  "dependencies": {
+    "mocha-snapshots": "^4.2.0"
+  }
 }

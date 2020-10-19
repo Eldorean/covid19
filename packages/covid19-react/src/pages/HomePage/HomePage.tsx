@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import { HomePageTitle } from './components/HomePageTitle'
-import { CountryListPresenter } from './components/CountryList/CountryList'
-import { HomePageInput } from './components/HomePageInput'
 import { CountriesServiceProvider } from './services/CountriesServiceAdapter'
-import { DropDownWindow } from './components/DropDownWindow'
 import { Country } from '@covid19/core'
 import { useFuse } from './hooks/useFuse'
+import { CountryListPresenter, Title, Input, Dropdown, Window } from './components'
 
-interface HomePageProps extends Record<string, unknown>{
+interface HomePageProps extends Record<string, unknown> {
   title: string
   countries: Country[]
 }
@@ -21,11 +18,11 @@ const HomePageStatic: React.FC<HomePageProps> = ({ title, countries }) => {
   const onInputchange = (e: React.ChangeEvent<HTMLInputElement>) => setSearchPattern(e.target.value)
 
   return (
-    <>
-      <HomePageTitle>{title}</HomePageTitle>
-      <HomePageInput onChange={onInputchange} placeholder="search country" />
-      {hasResults && <DropDownWindow><CountryList countries={filteredCountries} /></DropDownWindow>}
-    </>
+    <Window>
+      <Title>{title}</Title>
+      <Input onChange={onInputchange} placeholder="search country" />
+      {hasResults && <Dropdown><CountryList countries={filteredCountries} /></Dropdown>}
+    </Window>
   )
 }
 

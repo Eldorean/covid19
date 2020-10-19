@@ -1,4 +1,5 @@
 import { Country } from '@covid19/core'
+import { formatNumber } from 'mixin/numberFormatter/numberFormatter';
 import React from 'react'
 import * as Styles from './styles'
 
@@ -13,7 +14,7 @@ class CountryListPresenter {
   public CountryName;
   public CountryPopulation;
 
-  constructor () {
+  constructor() {
     this.CountryRow = Styles.CountryRow
     this.CountryLink = Styles.CountryLink
     this.CountryLabel = Styles.CountryLabel
@@ -31,11 +32,16 @@ class CountryListPresenter {
       <Presenter.CountryRow key={Name}>
         <Presenter.CountryLabel>
           <Presenter.CountryName>{Name} </Presenter.CountryName>
-          <Presenter.CountryPopulation>(pop: {Population})</Presenter.CountryPopulation>
+          <Presenter.CountryPopulation>(pop: {this.formatPopulation(Population)})</Presenter.CountryPopulation>
         </Presenter.CountryLabel>
         <Presenter.CountryLink to={`/country/${Name}`}>&#x279C;</Presenter.CountryLink>
       </Presenter.CountryRow>
     )
+  }
+
+  private formatPopulation = (population?: number) => {
+    if (!population) return '';
+    return formatNumber(population).toString()
   }
 }
 

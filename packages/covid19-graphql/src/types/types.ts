@@ -25,24 +25,29 @@ export type Query = {
   states: Array<State>;
 };
 
+
 export type QueryGlobalTotalArgs = {
   filterBy?: Maybe<CountryResultParametersFilterInput>;
 };
+
 
 export type QueryCountryArgs = {
   filterBy?: Maybe<CountryResultParametersFilterInput>;
   name: Scalars['String'];
 };
 
+
 export type QueryCountriesArgs = {
   filterBy?: Maybe<CountryResultParametersFilterInput>;
   sortBy?: Maybe<CountryResultParametersSortInput>;
 };
 
+
 export type QueryStateArgs = {
   filterBy?: Maybe<StateResultParametersFilterInput>;
   name: Scalars['String'];
 };
+
 
 export type QueryStatesArgs = {
   filterBy?: Maybe<StateResultParametersFilterInput>;
@@ -89,6 +94,7 @@ export type Result = {
   /** Total number of affected countries */
   affectedCountries?: Maybe<Scalars['Int']>;
 };
+
 
 /** Filter parameters */
 export enum CountryResultParametersFilterInput {
@@ -166,6 +172,7 @@ export type CountryQueryVariables = Exact<{
   name: Scalars['String'];
 }>;
 
+
 export type CountryQuery = (
   { __typename?: 'Query' }
   & { country: (
@@ -179,6 +186,7 @@ export type CountryQuery = (
 );
 
 export type ListOfCountriesQueryVariables = Exact<{ [key: string]: never; }>;
+
 
 export type ListOfCountriesQuery = (
   { __typename?: 'Query' }

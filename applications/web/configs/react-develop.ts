@@ -5,7 +5,7 @@ import { AllCountriesRequestAdapter } from './AllCountriesRequestAdapter'
 
 const CountryGateway = new CountryProvider({
   GetAllCountries: () => new AllCountriesRequestAdapter().Get(),
-  GetCountry: (name: string) => new CountryRequestAdapter('Netherlands').Get()
+  GetCountry: (name: string) => new CountryRequestAdapter(name).Get()
 })
 
 const PresentationProps = {
