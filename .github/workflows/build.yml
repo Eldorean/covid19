@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: distribution-artifacts
-ts          path: './**/dist/...'
+          path: './**/dist/...'
 
   release-version:
     if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
