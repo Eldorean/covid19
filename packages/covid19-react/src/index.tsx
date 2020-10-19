@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { CoreServiceInstance } from 'services/core/CoreService'
 import * as Core from '@covid19/core'
 import { App } from './App'
+import * as serviceWorker from './serviceWorker';
 
 interface Covid19ReactProps {
   CountryGateway: Core.CountryDataProvider
@@ -19,4 +20,6 @@ export const Start = (props: Covid19ReactProps) => {
     <App />,
     document.getElementById('root')
   )
+
+  serviceWorker.register();
 }
