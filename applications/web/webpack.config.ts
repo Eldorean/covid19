@@ -1,5 +1,6 @@
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { DefinePlugin } from 'webpack'
 
 const config = () => ({
   entry: './configs/react-develop.ts',
@@ -36,6 +37,9 @@ const config = () => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.ejs'
+    }),
+    new DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ],
   devServer: {
