@@ -6,6 +6,8 @@ const Navigator = styled(Link)`
   background: #DDD;
   text-align: center;
   padding:10px;
+  text-decoration: none;
+  color: inherit;
 `
 
 export { Navigator };

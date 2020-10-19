@@ -4,7 +4,7 @@ import { CountryServiceProvider } from './services/CountriesServiceAdapter'
 import { CountryHeader, Window, Navigator } from './components'
 import { Statistic } from './components/Statistics'
 import { formatNumber } from 'mixin/numberFormatter/numberFormatter'
-import { AtBottom } from './components/Navigator/components/Positions'
+import { Position } from './components/Navigator/components/Position'
 
 export interface CountryReportPageProps {
   countryName: string;
@@ -25,9 +25,9 @@ const CountryReportPageStatic: React.FC<CountryReportPageProps> = ({ countryName
         </div>
       </Window>
 
-      <AtBottom>
+      <Position>
         <Navigator to="/" >Home</Navigator>
-      </AtBottom>
+      </Position>
     </>
   )
 }
