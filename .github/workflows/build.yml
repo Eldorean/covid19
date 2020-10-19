@@ -1,0 +1,56 @@
+name: CI-Pipeline
+
+on: [ push ]
+
+jobs:
+  build-cache:
+    name: Prepare Cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install packages
+        run: yarn install
+
+      - name: Build packages
+        run: yarn run build:all
+
+      - name: Create distribution artifacts
+        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
+        uses: actions/upload-artifact@master
+        with:
+          name: distribution-artifacts
+          path: '**/dist'
+
+  release-version:
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
+    needs: [ build-cache ]
+    env:
+      BRANCH: ${{ github.ref }}
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - uses: actions/download-artifact@master
+        with:
+          name: distribution-artifacts
+          path: '**/dist'
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

@@ -1,0 +1,8 @@
+query ListOfCountries{
+    countries {
+        country
+        result {
+            population
+        }
+    }
+}

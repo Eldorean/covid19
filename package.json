@@ -1,44 +1,83 @@
 {
   "name": "covid19",
   "private": true,
-  "version": "0.0.1",
+  "author": "Silvester Wilson Wennekers",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix --ext .ts,.tsx ."
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Eldorean/covid19.git"
   },
-  "author": "Silvester Wilson Wennekers",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "start": "yarn install && yarn run build:all && yarn workspace @covid19/configs start",
+    "build:all": "yarn workspaces run build",
+    "lint": "eslint --fix --ext .ts,.tsx ."
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Eldorean/covid19/issues"
   },
   "homepage": "https://github.com/Eldorean/covid19#readme",
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "develop",
+        "prerelease": true
+      },
+      {
+        "name": "release",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator"
+    ]
+  },
   "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
+    "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@babel/register": "^7.11.5",
+    "@babel/register": "^7.10.5",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@types/chai": "^4.2.13",
+    "@types/enzyme": "^3.10.7",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/mocha": "^8.0.3",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
-    "core-js": "^3.6.5",
+    "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^8.1.1",
     "rimraf": "^3.0.2",
+    "rollup": "^2.29.0",
+    "rollup-plugin-typescript2": "^0.27.3",
+    "ts-node": "^8.10.2",
     "typescript": "^4.0.3"
   },
-  "dependencies": {},
   "workspaces": [
-    "packages/*"
-  ]
+    "packages/*",
+    "applications/web"
+  ],
+  "dependencies": {
+    "mocha-snapshots": "^4.2.0"
+  }
 }

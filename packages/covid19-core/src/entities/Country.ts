@@ -6,7 +6,7 @@ class Country {
 
   constructor (
     readonly Name: string,
-    readonly Population: number
+    readonly Population?: number
   ) { }
 }
 

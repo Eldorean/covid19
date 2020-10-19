@@ -8,7 +8,10 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: Quicksand;
     font-size: 16px;
-    box-sizing: border-box;
+
+    & * {
+      box-sizing: border-box;
+    }
   }
 `
 

@@ -2,7 +2,7 @@ import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config = () => ({
-  entry: './src/index.tsx',
+  entry: './configs/react-develop.ts',
   module: {
     rules: [
       {
@@ -25,13 +25,13 @@ const config = () => ({
     extensions: ['.tsx', '.ts', '.js'],
     modules: [
       path.resolve(__dirname, '../../node_modules'),
-      path.resolve(__dirname, 'src')
+      path.resolve(__dirname, 'configs')
     ]
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: './'
+    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -41,7 +41,7 @@ const config = () => ({
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 8000,
+    port: 9000,
     historyApiFallback: true
   }
 })
