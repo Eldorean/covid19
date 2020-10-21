@@ -13,5 +13,6 @@ const Window = styled.div`
 
   ${TabletStyle}
 `
+Window.displayName = 'Window'
 
 export { Window }

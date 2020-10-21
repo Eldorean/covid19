@@ -1,5 +1,5 @@
 import React from 'react'
-import { configure, mount, shallow } from 'enzyme'
+import { configure, mount } from 'enzyme'
 import { expect } from 'chai'
 import Adapter from 'enzyme-adapter-react-16'
 import { Dropdown } from 'pages/HomePage/components'

@@ -2,11 +2,11 @@ import React from 'react'
 import { configure, mount, ReactWrapper, shallow } from 'enzyme'
 import { expect } from 'chai'
 import Adapter from 'enzyme-adapter-react-16'
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom'
 
-import { HomePage } from 'pages/HomePage/HomePage';
-import { useFuse } from 'pages/HomePage/hooks/useFuse';
-import { countries } from '__test__/_mocks/MockCountries';
+import { HomePage } from 'pages/HomePage/HomePage'
+import { useFuse } from 'pages/HomePage/hooks/useFuse'
+import { countries } from '__test__/_mocks/MockCountries'
 configure({ adapter: new Adapter() })
 
 describe('Homepage', () => {
