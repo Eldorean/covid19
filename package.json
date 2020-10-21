@@ -14,7 +14,8 @@
   "scripts": {
     "start": "yarn install && yarn run build:all && yarn workspace @covid19/configs start",
     "build:all": "yarn workspaces run build",
-    "lint": "eslint --fix --ext .ts,.tsx ."
+    "lint": "eslint --fix --ext .ts,.tsx .",
+    "test:react": "yarn workspace @covid19/react run test"
   },
   "license": "ISC",
   "bugs": {
