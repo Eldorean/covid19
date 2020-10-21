@@ -1,3 +1,3 @@
 export { Header } from "./Header";
-export { Count } from "./Count";
+export { ReportCount as Count } from "./Count";
 export { Wrapper } from "./Wrapper";

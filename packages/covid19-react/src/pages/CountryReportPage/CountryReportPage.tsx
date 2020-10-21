@@ -11,7 +11,7 @@ export interface CountryReportPageProps {
   country?: Country
 }
 
-const CountryReportPageStatic: React.FC<CountryReportPageProps> = ({ countryName, country }) => {
+const CountryReportPage: React.FC<CountryReportPageProps> = ({ countryName, country }) => {
   const report = formatReport(country?.Report)
 
   return (
@@ -49,7 +49,5 @@ const formatReport = (report?: CovidReport) => {
 const buildReport = ({ Cases = '', Tested = '', Deaths = '' }) => ({
   Cases, Tested, Deaths
 })
-
-const CountryReportPage = CountryServiceProvider(CountryReportPageStatic)
 
 export { CountryReportPage }

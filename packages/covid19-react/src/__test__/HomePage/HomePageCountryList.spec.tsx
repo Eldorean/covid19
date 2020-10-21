@@ -4,7 +4,7 @@ import { expect } from 'chai'
 import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
 import { CountryListBuilder } from 'pages/HomePage/components'
-import { countries } from '__test__/_mocks/MockCountries';
+import { countries } from '__test__/_mocks/MockCountries'
 configure({ adapter: new Adapter() })
 
 describe('Homepage country list', () => {

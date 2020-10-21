@@ -9,5 +9,6 @@ const Navigator = styled(Link)`
   text-decoration: none;
   color: inherit;
 `
+Navigator.displayName = 'Navigator'
 
 export { Navigator };

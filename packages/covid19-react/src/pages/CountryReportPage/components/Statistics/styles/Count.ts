@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
-export const Count = styled.div`
-  
+export const ReportCount = styled.div`
+  font-weight: bold;
 `
+ReportCount.displayName = "ReportCount"
