@@ -8,3 +8,4 @@ export const CountryLink = styled(Link)`
   text-decoration: none;
   color: #333333;
 `
+CountryLink.displayName = "CountryLink"

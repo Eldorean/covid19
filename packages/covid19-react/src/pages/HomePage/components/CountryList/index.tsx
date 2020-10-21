@@ -7,7 +7,7 @@ declare type CountryListProps = {
   countries: Country[]
 }
 
-class CountryListPresenter {
+class CountryListBuilder {
   public CountryRow;
   public CountryLink;
   public CountryLabel;
@@ -29,9 +29,9 @@ class CountryListPresenter {
   private CountryElement: React.FC<Country> = ({ Name, Population }) => {
     const Presenter = this
     return (
-      <Presenter.CountryRow key={Name}>
+      <Presenter.CountryRow key={Name + '_' + Population}>
         <Presenter.CountryLabel>
-          <Presenter.CountryName>{Name} </Presenter.CountryName>
+          <Presenter.CountryName>{Name}</Presenter.CountryName>
           <Presenter.CountryPopulation>(pop: {this.formatPopulation(Population)})</Presenter.CountryPopulation>
         </Presenter.CountryLabel>
         <Presenter.CountryLink to={`/country/${Name}`}>&#x279C;</Presenter.CountryLink>
@@ -45,4 +45,4 @@ class CountryListPresenter {
   }
 }
 
-export { CountryListPresenter }
+export { CountryListBuilder }

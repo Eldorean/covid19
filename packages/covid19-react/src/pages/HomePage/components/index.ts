@@ -1,4 +1,4 @@
-export { CountryListPresenter } from './CountryList'
+export { CountryListBuilder } from './CountryList'
 export { Dropdown } from './DropDown'
 export { Input } from './Input'
 export { Title } from './Title'

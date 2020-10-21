@@ -10,3 +10,4 @@ export const CountryRow = styled.div`
     border-bottom: none;
   }
 `
+CountryRow.displayName = "CountryRow"

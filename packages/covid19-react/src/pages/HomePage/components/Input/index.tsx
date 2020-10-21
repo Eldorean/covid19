@@ -8,3 +8,4 @@ export const Input = styled(InputStyle)`
   max-width: 280px;
   margin: 0 auto;
 `
+Input.displayName = "Input"
