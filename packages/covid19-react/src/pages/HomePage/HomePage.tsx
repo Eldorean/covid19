@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import { CountriesServiceProvider } from './services/CountriesServiceAdapter'
 import { Country } from '@covid19/core'
 import { useFuse } from './hooks/useFuse'
-import { CountryListPresenter, Title, Input, Dropdown, Window } from './components'
+import { CountryListBuilder, Title, Input, Dropdown, Window } from './components'
 
 interface HomePageProps extends Record<string, unknown> {
   title: string
   countries: Country[]
 }
 
-const CountryList = new CountryListPresenter().RenderList
+const CountryList = new CountryListBuilder().RenderList
+CountryList.displayName = 'CountryList';
 
-const HomePageStatic: React.FC<HomePageProps> = ({ title, countries }) => {
+const HomePage: React.FC<HomePageProps> = ({ title, countries }) => {
   const [searchPattern, setSearchPattern] = useState('')
   const { countries: filteredCountries, hasResults } = useFuse(countries, searchPattern)
 
@@ -26,6 +26,5 @@ const HomePageStatic: React.FC<HomePageProps> = ({ title, countries }) => {
   )
 }
 
-const HomePage = CountriesServiceProvider(HomePageStatic)
 
 export { HomePage }

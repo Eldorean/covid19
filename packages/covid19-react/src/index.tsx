@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { CoreServiceInstance } from 'services/core/CoreService'
+import { CoreServiceInstance } from './services/core/CoreService'
 import * as Core from '@covid19/core'
 import { App } from './App'
 import * as serviceWorker from './serviceWorker';

@@ -1,6 +1,7 @@
 
-import { CountryReportPage } from 'pages/CountryReportPage/CountryReportPage'
-import { HomePage } from 'pages/HomePage/HomePage'
+import { CountryReportPage } from './pages/CountryReportPage/CountryReportPage'
+import { HomePage } from './pages/HomePage/HomePage'
+import { CountriesServiceProvider } from './pages/HomePage/services/CountriesServiceAdapter'
 import React from 'react'
 import {
   BrowserRouter as Router,
@@ -8,7 +9,7 @@ import {
   Route,
   useParams
 } from 'react-router-dom'
-import { CoreServiceInstance } from 'services/core/CoreService'
+import { CoreServiceInstance } from './services/core/CoreService'
 
 type RouterParameters<T> = { [K in keyof T]?: string | undefined };
 
@@ -25,13 +26,14 @@ const Routing: React.FC = () => {
   const Core = new CoreServiceInstance()
   Core.GetInstance()
   const HomepageTitle = Core.GetInstance().HomePageProps.Title
+  const ConnectedHomePage = CountriesServiceProvider(HomePage)
 
   return (
     <Router>
       <Switch>
         <Route path="/country/:countryName" children={<PageRouterParamsConnector page={CountryReportPage} />} />
         <Route path="/">
-          <HomePage title={HomepageTitle} />
+          <ConnectedHomePage title={HomepageTitle} />
         </Route>
       </Switch>
     </Router>

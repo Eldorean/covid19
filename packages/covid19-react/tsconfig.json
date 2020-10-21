@@ -67,6 +67,6 @@
     "dist/**/*"
   ],
   "include": [
-    "src"
+    "./src"
   ]
 }
