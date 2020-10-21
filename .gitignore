@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# vsCode Workspace file
+Covid19.code-workspace

@@ -4,10 +4,9 @@ import Adapter from 'enzyme-adapter-react-16'
 
 import { CoreServiceInstance } from 'services/core/CoreService'
 import { Country } from '@covid19/core'
-import { MockCoreServiceProvider } from './mocks/MockCoreServiceProvider'
-import { countries as MockCountries } from './mocks/MockCountries'
 import { CountriesServiceProvider } from 'pages/HomePage/services/CountriesServiceAdapter'
-
+import { MockCoreServiceProvider } from '__test__/_mocks/MockCoreServiceProvider'
+import { countries as MockCountries } from '__test__/_mocks/MockCountries'
 configure({ adapter: new Adapter() })
 
 interface MockComponentProps extends Record<string, unknown> { countries: Country[], testProp: string }
@@ -27,7 +26,6 @@ describe('Countries Service', () => {
 
   it("returns the countries", (done) => {
     const MockComponent = MockComponentFactory(({ countries }) => {
-      console.log(countries)
       if (countries === MockCountries) done();
     })
     const Component = CountriesServiceProvider(MockComponent)
@@ -41,5 +39,4 @@ describe('Countries Service', () => {
     const Component = CountriesServiceProvider(MockComponent)
     mount(<Component testProp={testString} />)
   })
-
 })
