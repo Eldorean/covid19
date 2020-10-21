@@ -1,8 +1,8 @@
-import { CoreServiceInstance } from 'services/core/CoreService'
 import React, { useEffect, useState } from 'react'
 import { Country } from '@covid19/core'
+import { CoreServiceInstance } from 'services/core/CoreService'
 
-declare type CountriesProp = {countries: Country[]};
+declare type CountriesProp = { countries: Country[] };
 declare type RestProp = Record<string, unknown>;
 declare type WithoutCountry<T> = Pick<T, Exclude<keyof T, keyof CountriesProp>>
 
